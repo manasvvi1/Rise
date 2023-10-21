@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
+import 'package:rise/navigationBar.dart';
 
 class Login extends StatelessWidget {
   // final _auth = FirebaseAuth.instance;
@@ -15,7 +16,6 @@ class Login extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text('RISE - Heal and Rise!', style: TextStyle(color: Colors.black),),
-            backgroundColor: PRIMARY_PINK,
           ),
           body: Center(
             child: SingleChildScrollView(
@@ -97,6 +97,10 @@ class Login extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),),
                       onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyNavBar()),
+                        );
                         // try {
                         //   final signUser =
                         //   await _auth.signInWithEmailAndPassword(
@@ -151,7 +155,6 @@ class SignUp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('RISE - Heal and Rise', style: TextStyle(color: Colors.black),),
-          backgroundColor: PRIMARY_PINK,
         ),
         body: Center(
           child: SingleChildScrollView(
@@ -286,7 +289,10 @@ class SignUp extends StatelessWidget {
                               fontWeight: FontWeight.bold,),
                           textAlign: TextAlign.center,
                         )),
-                    onPressed: () async {
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyNavBar()));
                       // if (password == confirmPassword) {
                       //   try {
                       //     final newUser =
