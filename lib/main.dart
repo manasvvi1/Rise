@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/home.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +25,23 @@ class MyApp extends StatelessWidget {
         primaryColorDark: PRIMARY_BLUE,
         bottomAppBarColor: PRIMARY_BG
       ),
-      home: Home(),
+      home: Splash(),
+    );
+  }
+}
+
+class Splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      backgroundColor: PRIMARY_PINK,
+      seconds: 6,
+      navigateAfterSeconds: new Home(),
+      image: new Image.asset('assets/logo.png'),
+      loadingText: Text(
+        "Loading",
+      ),
+      photoSize: 200.0,
     );
   }
 }
