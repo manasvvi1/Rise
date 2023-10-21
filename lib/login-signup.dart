@@ -182,7 +182,26 @@ class SignUp extends StatelessWidget {
                           // name = value;
                         },
                         decoration: InputDecoration(
-                          hintText: "Enter Name",
+                          hintText: "Enter User Name",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          contentPadding:
+                          EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        ),
+                      )),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                      child: TextField(
+                        showCursor: false,
+                        textAlign: TextAlign.center,
+                        onChanged: (value) {
+                          // name = value;
+                        },
+                        decoration: InputDecoration(
+                          hintText: "Enter Display Name",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),

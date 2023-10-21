@@ -3,6 +3,7 @@ import 'package:rise/analytics.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/dearDiary.dart';
 import 'package:rise/discussions.dart';
+import 'package:rise/profile.dart';
 import 'package:rise/recommendations.dart';
 
 class MyNavBar extends StatefulWidget {
@@ -30,6 +31,9 @@ class _MyNavBarState extends State<MyNavBar> {
   void handleClick(String value) {
     switch (value) {
       case 'Profile':
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Profile()));
         break;
       case 'Settings':
         break;
@@ -47,7 +51,7 @@ class _MyNavBarState extends State<MyNavBar> {
           PopupMenuButton<String>(
             onSelected: handleClick,
             itemBuilder: (BuildContext context) {
-              return {'Logout', 'Settings'}.map((String choice) {
+              return {'Profile','Logout', 'Settings'}.map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: Text(choice),
