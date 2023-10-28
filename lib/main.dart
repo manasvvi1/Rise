@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/home.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Rise',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         unselectedWidgetColor: PRIMARY_PINK,
@@ -23,7 +24,10 @@ class MyApp extends StatelessWidget {
         backgroundColor: PRIMARY_BG,
         primaryColorLight: PRIMARY_PINK,
         primaryColorDark: PRIMARY_BLUE,
-        bottomAppBarColor: PRIMARY_BG
+        bottomAppBarColor: PRIMARY_BG,
+        textTheme: GoogleFonts.ubuntuTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       home: Splash(),
     );
@@ -35,7 +39,7 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       backgroundColor: PRIMARY_PINK,
-      seconds: 6,
+      seconds: 3,
       navigateAfterSeconds: new Home(),
       image: new Image.asset('assets/logo.png'),
       loadingText: Text(
