@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/navigationBar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+late String? userUID;
 
 class Login extends StatelessWidget {
-  // final _auth = FirebaseAuth.instance;
-
+  final _auth = FirebaseAuth.instance;
   String email = "", password = "";
 
   @override
@@ -96,27 +98,22 @@ class Login extends StatelessWidget {
                               fontWeight: FontWeight.bold,),
                           textAlign: TextAlign.center,
                         ),),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MyNavBar()),
-                        );
-                        // try {
-                        //   final signUser =
-                        //   await _auth.signInWithEmailAndPassword(
-                        //       email: email, password: password);
-                        //   userUID = FirebaseAuth.instance.currentUser?.uid;
-                        //   getDetails();
-                        //   if (signUser != null) {
-                        //     Navigator.pushReplacement(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) => Subjects()),
-                        //     );
-                        //   }
-                        // } catch (e) {
-                        //   print(e);
-                        // }
+                      onPressed: () async {
+                        try {
+                          final signUser =
+                              await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                          userUID = FirebaseAuth.instance.currentUser?.uid;
+                          if (signUser != null) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyNavBar()),
+                            );
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
                       },
                     ),
                     SizedBox(
@@ -146,7 +143,8 @@ class Login extends StatelessWidget {
 }
 
 class SignUp extends StatelessWidget {
-  // final _auth = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
+  String userName = "", displayName = "", contactNumber = "", email = "", password = "", confirmPassword = "";
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +177,7 @@ class SignUp extends StatelessWidget {
                         showCursor: false,
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          // name = value;
+                          userName = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Enter User Name",
@@ -198,7 +196,7 @@ class SignUp extends StatelessWidget {
                         showCursor: false,
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          // name = value;
+                          displayName = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Enter Display Name",
@@ -218,7 +216,7 @@ class SignUp extends StatelessWidget {
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         onChanged: (value) {
-                          // contactNum = value;
+                          contactNumber = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Enter Contact Number",
@@ -238,7 +236,7 @@ class SignUp extends StatelessWidget {
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.emailAddress,
                         onChanged: (value) {
-                          // email = value;
+                          email = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Enter Email ID",
@@ -258,7 +256,7 @@ class SignUp extends StatelessWidget {
                         textAlign: TextAlign.center,
                         obscureText: true,
                         onChanged: (value) {
-                          // password = value;
+                          password = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Enter Password",
@@ -278,7 +276,7 @@ class SignUp extends StatelessWidget {
                         textAlign: TextAlign.center,
                         obscureText: true,
                         onChanged: (value) {
-                          // confirmPassword = value;
+                          confirmPassword = value;
                         },
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
@@ -308,40 +306,40 @@ class SignUp extends StatelessWidget {
                               fontWeight: FontWeight.bold,),
                           textAlign: TextAlign.center,
                         )),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => MyNavBar()));
-                      // if (password == confirmPassword) {
-                      //   try {
-                      //     final newUser =
-                      //     await _auth.createUserWithEmailAndPassword(
-                      //         email: email, password: password);
-                      //
-                      //     final userUID =
-                      //         FirebaseAuth.instance.currentUser?.uid;
-                      //
-                      //     FirebaseFirestore.instance
-                      //         .collection('students')
-                      //         .doc(userUID)
-                      //         .set({
-                      //       'name': name,
-                      //       'contactNumber': contactNum,
-                      //       'emailAddress': email,
-                      //       'enrollmentNumber': enrollmentNo,
-                      //       'password': password,
-                      //     });
-                      //     if (newUser != null) {
-                      //       Navigator.pushReplacement(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //             builder: (context) => Subjects()),
-                      //       );
-                      //     }
-                      //   } catch (e) {
-                      //     print(e);
-                      //   }
-                      // }
+                      if (password == confirmPassword) {
+                        try {
+                          final newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: email, password: password);
+
+                          final userUID =
+                              FirebaseAuth.instance.currentUser?.uid;
+
+                          // FirebaseFirestore.instance
+                          //     .collection('students')
+                          //     .doc(userUID)
+                          //     .set({
+                          //   'name': name,
+                          //   'contactNumber': contactNum,
+                          //   'emailAddress': email,
+                          //   'enrollmentNumber': enrollmentNo,
+                          //   'password': password,
+                          // });
+                          if (newUser != null) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyNavBar()),
+                            );
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
+                      }
                     },
                   ),
                   Row(

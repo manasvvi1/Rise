@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "52390656211",
+    "project_id": "rise-mc",
+    "storage_bucket": "rise-mc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52390656211:android:0f76ce62c9bc23a3e63c26",
+        "android_client_info": {
+          "package_name": "com.example.rise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf_8FxTskxvnXfUmYwIDQxJNAMwgqMTVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
