@@ -95,7 +95,7 @@ class _DiaryEntryState extends State<DiaryEntry> {
                   final userUID =
                       FirebaseAuth.instance.currentUser?.uid;
                   DateTime timestamp = DateTime.timestamp();
-                  String stringTime = '${timestamp.year}-${timestamp.month}-${timestamp.day} (${timestamp.hour}:${timestamp.minute}:${timestamp.second}})';
+                  String stringTime = '${timestamp.year}-${timestamp.month}-${timestamp.day} (${timestamp.hour}:${timestamp.minute}:${timestamp.second})';
                   FirebaseFirestore.instance
                       .collection('users')
                       .doc(userUID)
