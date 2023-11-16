@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/navigationBar.dart';
@@ -319,16 +320,16 @@ class SignUp extends StatelessWidget {
                           final userUID =
                               FirebaseAuth.instance.currentUser?.uid;
 
-                          // FirebaseFirestore.instance
-                          //     .collection('students')
-                          //     .doc(userUID)
-                          //     .set({
-                          //   'name': name,
-                          //   'contactNumber': contactNum,
-                          //   'emailAddress': email,
-                          //   'enrollmentNumber': enrollmentNo,
-                          //   'password': password,
-                          // });
+                          FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(userUID)
+                              .set({
+                            'userName': userName,
+                            'displayName': displayName,
+                            'contactNumber': contactNumber,
+                            'emailAddress': email,
+                            'password': password,
+                          });
                           if (newUser != null) {
                             Navigator.pushReplacement(
                               context,

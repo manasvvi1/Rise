@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:rises/constants.dart';
+import 'package:rise/constants.dart';
 
 class Profile extends StatefulWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rise/analytics.dart';
 import 'package:rise/constants.dart';
-import 'package:rise/dearDiary.dart';
+import 'package:rise/diary.dart';
 import 'package:rise/screens/discussion/DiscussionScreen.dart';
 import 'package:rise/profile.dart';
 import 'package:rise/recommendations.dart';
