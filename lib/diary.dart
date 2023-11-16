@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
+import 'package:rise/diary_entry.dart';
 
 class DearDiary extends StatefulWidget {
   const DearDiary({Key? key}) : super(key: key);
@@ -23,9 +24,6 @@ class _DearDiaryState extends State<DearDiary> {
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                   ),
-                  onPressed: () {
-                    // Add functionality for CONTACT US button
-                  },
                   child: Container(
                     padding:
                     EdgeInsets.symmetric(vertical: 8, horizontal: 15),
@@ -34,13 +32,17 @@ class _DearDiaryState extends State<DearDiary> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(
-                      'Wanna Write',
+                      'Wanna Write?',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                        fontWeight: FontWeight.bold,),
                       textAlign: TextAlign.center,
-                    ),
-                  ),
+                    ),),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DiaryEntry()),
+                    );
+                  },
                 ),
                 SizedBox(width: 16), // Add spacing between buttons
                 TextButton(
@@ -50,20 +52,24 @@ class _DearDiaryState extends State<DearDiary> {
                   onPressed: () {
                     // Add functionality for the second button
                   },
-                  child: Container(
-                    padding:
-                    EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: PRIMARY_DARK_PINK,
-                      borderRadius: BorderRadius.circular(10),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
                     ),
-                    child: Text(
-                      'Wanna Speak',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    child: Container(
+                      padding:
+                      EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                      decoration: BoxDecoration(
+                        color: PRIMARY_DARK_PINK,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      textAlign: TextAlign.center,
-                    ),
+                      child: Text(
+                        'Wanna Record?',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,),
+                        textAlign: TextAlign.center,
+                      ),),
+                    onPressed: (){},
                   ),
                 ),
               ],

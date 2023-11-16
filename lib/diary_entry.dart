@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
 
-class Profile extends StatefulWidget {
+class DiaryEntry extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _DiaryEntryState createState() => _DiaryEntryState();
 }
 
-class _ProfileState extends State<Profile> {
+class _DiaryEntryState extends State<DiaryEntry> {
   var child;
   var children;
 
@@ -41,32 +41,51 @@ class _ProfileState extends State<Profile> {
             ),
             SizedBox(height: 10),
             Text(
-              'Record it in 100 lines',
+              'Record it in max 100 lines',
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 10),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              height: MediaQuery.of(context).size.height - 150,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: ListView.builder(
-                itemCount: 100, // Change the itemCount as needed
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: 20,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(color: Colors.grey),
-                      ),
+              margin: EdgeInsets.symmetric(horizontal: 10),
+                child: TextField(
+                  minLines: 5,
+                  maxLines: 100,
+                  showCursor: false,
+                  textAlign: TextAlign.center,
+                  onChanged: (value) {
+                    // userName = value;
+                  },
+                  decoration: InputDecoration(
+                    hintText: "Start Writing...",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                  );
-                },
+                    contentPadding:
+                    EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+                  ),
+                )),
+            SizedBox(height: 10),
+            TextButton(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
               ),
+              child: Container(
+                padding:
+                EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                decoration: BoxDecoration(
+                  color: PRIMARY_DARK_PINK,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  'Done',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,),
+                  textAlign: TextAlign.center,
+                ),),
+              onPressed: (){},
             ),
           ],
         ),

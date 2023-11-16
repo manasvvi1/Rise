@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rise/analytics.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/diary.dart';
+import 'package:rise/home.dart';
 import 'package:rise/screens/discussion/DiscussionScreen.dart';
 import 'package:rise/profile.dart';
 import 'package:rise/recommendations.dart';
@@ -17,7 +18,7 @@ class _MyNavBarState extends State<MyNavBar> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     DearDiary(),
-    Recommendations(),
+    // Recommendations(),
     Analytics(),
     Discussions()
   ];
@@ -35,9 +36,14 @@ class _MyNavBarState extends State<MyNavBar> {
             context,
             MaterialPageRoute(builder: (context) => Profile()));
         break;
+      case 'Get Recommendations':
+        break;
       case 'Settings':
         break;
       case 'Logout':
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home()));
         break;
     }
   }
@@ -51,7 +57,7 @@ class _MyNavBarState extends State<MyNavBar> {
           PopupMenuButton<String>(
             onSelected: handleClick,
             itemBuilder: (BuildContext context) {
-              return {'Profile','Logout', 'Settings'}.map((String choice) {
+              return {'Profile', 'Get Recommendations', 'Logout', 'Settings'}.map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: Text(choice),
@@ -71,11 +77,11 @@ class _MyNavBarState extends State<MyNavBar> {
             label: 'Dear Diary',
             // backgroundColor: Colors.green
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie_outlined),
-            label: 'Recommendations',
-            // backgroundColor: Colors.yellow
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.movie_outlined),
+          //   label: 'Recommendations',
+          //   // backgroundColor: Colors.yellow
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics_outlined),
             label: 'Analytics',
