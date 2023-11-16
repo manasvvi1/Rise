@@ -6,6 +6,7 @@ import 'package:rise/home.dart';
 import 'package:rise/screens/discussion/DiscussionScreen.dart';
 import 'package:rise/profile.dart';
 import 'package:rise/recommendations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyNavBar extends StatefulWidget {
   MyNavBar ({Key? key}) : super(key: key);
@@ -29,6 +30,15 @@ class _MyNavBarState extends State<MyNavBar> {
     });
   }
 
+  _launchURLBrowser() async {
+    var url = Uri.parse("https://yuktika089-web-app-movierec-app-h29fb4.streamlit.app/");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   void handleClick(String value) {
     switch (value) {
       case 'Profile':
@@ -37,8 +47,7 @@ class _MyNavBarState extends State<MyNavBar> {
             MaterialPageRoute(builder: (context) => Profile()));
         break;
       case 'Get Recommendations':
-        break;
-      case 'Settings':
+        _launchURLBrowser();
         break;
       case 'Logout':
         Navigator.push(
@@ -57,7 +66,7 @@ class _MyNavBarState extends State<MyNavBar> {
           PopupMenuButton<String>(
             onSelected: handleClick,
             itemBuilder: (BuildContext context) {
-              return {'Profile', 'Get Recommendations', 'Logout', 'Settings'}.map((String choice) {
+              return {'Profile', 'Get Recommendations', 'Logout'}.map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: Text(choice),

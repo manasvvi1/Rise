@@ -32,13 +32,13 @@ class _ProfileState extends State<Profile> {
                           SizedBox(
                             height: 30,
                           ),
-                          Text('User Name : ' + 'Anjali',
+                          Text('User Name : ' + 'Simran',
                           ),
-                          Text('Display Name : ' + 'Anjali1234',
+                          Text('Display Name : ' + 'simsim',
                           ),
-                          Text('Email ID : ' + 'jhsjah',
+                          Text('Email ID : ' + 'simranarora@gmail.com',
                               ),
-                          Text('Contact Number : ' + 'contactNum'),
+                          Text('Contact Number : ' + '9876543210'),
                           SizedBox(
                             height: 30,
                           ),
