@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
+import 'package:rise/home.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -133,6 +134,7 @@ class _ProfileState extends State<Profile> {
                               ),),
                             onPressed: () {}
                           ),
+                          SizedBox(height: 10,),
                           TextButton(
                               style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
@@ -150,26 +152,13 @@ class _ProfileState extends State<Profile> {
                                     fontWeight: FontWeight.bold,),
                                   textAlign: TextAlign.center,
                                 ),),
-                              onPressed: () {}
-                          ),
-                          TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                              ),
-                              child: Container(
-                                padding:
-                                EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                                decoration: BoxDecoration(
-                                  color: PRIMARY_DARK_PINK,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Text(
-                                  'DELETE ACCOUNT',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,),
-                                  textAlign: TextAlign.center,
-                                ),),
-                              onPressed: () {}
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Home()),
+                                );
+                              }
                           ),
                         ]),
                   )),
