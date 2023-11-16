@@ -1,6 +1,9 @@
 // ignore: file_names
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rise/constants.dart';
+import 'package:rise/navigationBar.dart';
 
 class DiaryEntry extends StatefulWidget {
   @override
@@ -10,6 +13,8 @@ class DiaryEntry extends StatefulWidget {
 class _DiaryEntryState extends State<DiaryEntry> {
   var child;
   var children;
+  final _auth = FirebaseAuth.instance;
+  String entry = "";
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +61,7 @@ class _DiaryEntryState extends State<DiaryEntry> {
                   showCursor: false,
                   textAlign: TextAlign.center,
                   onChanged: (value) {
-                    // userName = value;
+                    entry = value;
                   },
                   decoration: InputDecoration(
                     hintText: "Start Writing...",
@@ -85,7 +90,28 @@ class _DiaryEntryState extends State<DiaryEntry> {
                     fontWeight: FontWeight.bold,),
                   textAlign: TextAlign.center,
                 ),),
-              onPressed: (){},
+              onPressed: (){
+                try{
+                  final userUID =
+                      FirebaseAuth.instance.currentUser?.uid;
+                  DateTime timestamp = DateTime.timestamp();
+                  String stringTime = '${timestamp.year}-${timestamp.month}-${timestamp.day} (${timestamp.hour}:${timestamp.minute}:${timestamp.second}})';
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(userUID)
+                      .update({
+                      stringTime : entry,
+                  });
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyNavBar()),
+                  );
+                }
+                catch (e){
+                  print(e);
+                }
+              },
             ),
           ],
         ),

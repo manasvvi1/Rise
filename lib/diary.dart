@@ -93,34 +93,34 @@ class _DearDiaryState extends State<DearDiary> {
                     ),
                   ),
                   SizedBox(height: 16),
-                  Text(
-                    'Your Previous Entries!',
-                  ),
-                  ListView(
-                    shrinkWrap: true,
-                    children: <Widget>[
-                      ListTile(
-                        leading: Icon(Icons.arrow_circle_right),
-                        title: Text('Saturday, 11/11/23'),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.arrow_circle_right),
-                        title: Text('Sunday, 12/11/23'),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.arrow_circle_right),
-                        title: Text('Monday, 13/11/23'),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.arrow_circle_right),
-                        title: Text('Tuesday, 14/11/23'),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.arrow_circle_right),
-                        title: Text('Wednesday, 14/11/23'),
-                      ),
-                    ],
-                  ),
+                  // Text(
+                  //   'Your Previous Entries!',
+                  // ),
+                  // ListView(
+                  //   shrinkWrap: true,
+                  //   children: <Widget>[
+                  //     ListTile(
+                  //       leading: Icon(Icons.arrow_circle_right),
+                  //       title: Text('Saturday, 11/11/23'),
+                  //     ),
+                  //     ListTile(
+                  //       leading: Icon(Icons.arrow_circle_right),
+                  //       title: Text('Sunday, 12/11/23'),
+                  //     ),
+                  //     ListTile(
+                  //       leading: Icon(Icons.arrow_circle_right),
+                  //       title: Text('Monday, 13/11/23'),
+                  //     ),
+                  //     ListTile(
+                  //       leading: Icon(Icons.arrow_circle_right),
+                  //       title: Text('Tuesday, 14/11/23'),
+                  //     ),
+                  //     ListTile(
+                  //       leading: Icon(Icons.arrow_circle_right),
+                  //       title: Text('Wednesday, 14/11/23'),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
