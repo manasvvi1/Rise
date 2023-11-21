@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:rise/constants.dart';
 import 'package:rise/home.dart';
@@ -8,6 +9,7 @@ import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -30,9 +32,9 @@ class MyApp extends StatelessWidget {
         backgroundColor: PRIMARY_BG,
         primaryColorLight: PRIMARY_PINK,
         primaryColorDark: PRIMARY_BLUE,
-        // textTheme: GoogleFonts.ubuntuTextTheme(
-        //   Theme.of(context).textTheme,
-        // ),
+        textTheme: GoogleFonts.ubuntuTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       home: Home(),
     );

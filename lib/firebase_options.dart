@@ -62,6 +62,7 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDf_8FxTskxvnXfUmYwIDQxJNAMwgqMTVY',
     appId: '1:52390656211:android:0f76ce62c9bc23a3e63c26',
     messagingSenderId: '52390656211',
+    databaseURL: "https://rise-mc-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: 'rise-mc',
     storageBucket: 'rise-mc.appspot.com',
   );
